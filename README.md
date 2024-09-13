@@ -1,6 +1,4 @@
-# CityConstruction
-
-Base Java Project
+City Construction
 =================
 
 This is a [Gradle][]-based Java project structure. Provided you have the [OpenJDK][] installed, the `gradlew` script will take care of all other dependencies.
