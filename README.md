@@ -57,3 +57,13 @@ Look up and fix any of the [PMD warnings](), or [suppress][] them if/where appro
 This project configures logging ([java.util.logging][]) so that you don't need to. Simply obtain logger objects with `Logger.getLogger()`, and insert logging statements where appropriate.
 
 [java.util.logging]: https://docs.oracle.com/en/java/javase/21/core/java-logging-overview.html
+
+# Criteria Discussion
+#### For my program I have implemented the strategy pattern to enforce as my programs option 2 function BuildCity where it has 3 different approaches (Uniform, Random and Central) address similar goals (get number of floors, get foundation and get material) but using slightly different algorithms. Each of these algorithms get their own class and implement a common interface which allows for better maintenence and cleaner code. New approaches can be added without modifying any original code (follows open/closed principle). As each approach gets its own class, this allows for the selection of different approaches at runtime phase based on the user input.
+
+#### A single interface "Structure" has abstract methods. These abstract methods are implemented in the Uniform, Random and Central classes with their own unique algorithms. These 3 classes can then be instantiated as type "Structure" and stored in a container and called depending on the program conditions.
+
+#### My program also implements a decorator pattern which allows for different "behaviours" to be added to an object during runtime. The object "GridSquare" is wrapped in ZoningRule objects (Heritage, Heightlimit, Contamination and FloodRisk) which describe the zoning rules of the square in the grid. This strategy avoids to many classes having to be being created for every possible combination of zoning rules. More zoning rule classes (functionality) can easily be added at any time making the code much more flexible and clean.
+
+
+#### A single interface "GridSquare"  has abstract methods to be implemented by (Swampy, Flat or Rocky). After the type of square is instantiated by the abstract decorator class "ZoningRules" which holds a reference to the component object which can be either another decorator component (heritage, heightlimit, contamination or floodrisk) or original component (swampy, flat or rocky).
